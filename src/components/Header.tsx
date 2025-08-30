@@ -17,23 +17,10 @@ const WHATSAPP_URL = "https://wa.me/8801783147171";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-500 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-xl' 
-        : 'bg-white/80 backdrop-blur-sm'
-    }`}>
+    <header className="fixed top-0 z-50 w-full bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg transition-all duration-300">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
