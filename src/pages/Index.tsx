@@ -14,10 +14,9 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 const Index = () => {
   useEffect(() => {
     try {
-      // Set initial theme
+      // Set initial theme - default to light
       const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+      const initialTheme = savedTheme || "light";
       
       document.documentElement.classList.remove("light", "dark");
       document.documentElement.classList.add(initialTheme);
