@@ -20,7 +20,7 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-border/50 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-[9999] w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-border/50 shadow-lg">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-2 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
@@ -103,7 +103,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-16 left-0 right-0 z-40 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg pointer-events-auto">
+        <div className="lg:hidden fixed top-16 left-0 right-0 z-[9998] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg pointer-events-auto">
           <nav className="px-4 py-4 space-y-1">
             {navigation.map((item) => {
               const isActive = location.pathname === item.href;
