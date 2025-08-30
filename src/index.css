@@ -1,0 +1,693 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apple-Inspired Professional Portfolio Design System */
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Apple-inspired Neutral Palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    /* Apple Blue System Colors */
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 211 100% 45%;
+    --primary-muted: 211 100% 50%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 76% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 211 100% 50%;
+
+    /* Apple-inspired Gradients */
+    --hero-gradient-from: 211 100% 50%;
+    --hero-gradient-to: 251 91% 59%;
+    --portfolio-accent: 251 91% 59%;
+    --portfolio-accent-foreground: 0 0% 100%;
+
+    /* Glass Morphism & Advanced Shadows */
+    --glass-bg: 255 255 255 / 0.1;
+    --glass-border: 255 255 255 / 0.2;
+    --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 0 1px rgba(59, 130, 246, 0.05), 0 1px 3px 0 rgba(59, 130, 246, 0.1);
+    --shadow-inner: inset 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Apple Dark Mode */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 211 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 211 100% 60%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 211 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 76% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 211 100% 55%;
+
+    /* Dark Mode Gradients */
+    --hero-gradient-from: 211 100% 55%;
+    --hero-gradient-to: 251 91% 65%;
+    --portfolio-accent: 251 91% 65%;
+    --portfolio-accent-foreground: 0 0% 100%;
+
+    /* Dark Glass Effects */
+    --glass-bg: 0 0 0 / 0.4;
+    --glass-border: 255 255 255 / 0.1;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 211 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 211 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Apple-style typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #1d1d1f;
+  }
+
+  p {
+    color: #6e6e73;
+  }
+
+  .text-muted-foreground {
+    color: #6e6e73 !important;
+  }
+
+  .text-foreground {
+    color: #1d1d1f !important;
+  }
+}
+
+@layer components {
+  /* Apple-inspired Components */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-from)), hsl(var(--hero-gradient-to)));
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .shadow-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-inner {
+    box-shadow: var(--shadow-inner);
+  }
+
+  /* Apple-style animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Professional heading animations */
+  .animate-heading-reveal {
+    animation: headingReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-text-shimmer {
+    background: linear-gradient(90deg, 
+      hsl(var(--foreground)) 0%, 
+      hsl(var(--primary)) 50%, 
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 3s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    background: linear-gradient(-45deg, 
+      hsl(var(--primary)), 
+      hsl(var(--portfolio-accent)), 
+      hsl(var(--primary)), 
+      hsl(var(--portfolio-accent))
+    );
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-stagger-fade {
+    opacity: 0;
+    animation: staggerFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Hover animations for professional touch */
+  .animate-hover-glow:hover {
+    text-shadow: 0 0 20px hsla(var(--primary), 0.5);
+    transition: text-shadow 0.3s ease;
+  }
+
+  /* Apple-style button effects */
+  .apple-button {
+    @apply relative overflow-hidden transition-all duration-200 ease-out;
+  }
+
+  .apple-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .apple-button:active {
+    transform: translateY(0);
+  }
+
+  /* Sophisticated hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Professional section reveals */
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: sectionReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Advanced project animations */
+  .project-grid-enter {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    animation: projectGridEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .filter-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .filter-button:hover::before {
+    left: 100%;
+  }
+
+  /* Enhanced form animations */
+  .form-field {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: formFieldReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .contact-card-enter {
+    opacity: 0;
+    transform: translateY(30px) rotateX(10deg);
+    animation: contactCardEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Professional floating elements */
+  .floating-element {
+    animation: professionalFloat 8s ease-in-out infinite;
+  }
+
+  .floating-element-delayed {
+    animation: professionalFloat 8s ease-in-out infinite 2s;
+  }
+
+  .floating-element-slow {
+    animation: professionalFloat 12s ease-in-out infinite 4s;
+  }
+
+  /* Advanced hover effects */
+  .card-hover-glow {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-hover-glow::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, 
+      hsl(var(--primary) / 0.3), 
+      hsl(var(--portfolio-accent) / 0.3), 
+      hsl(var(--primary) / 0.3)
+    );
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-hover-glow:hover::before {
+    opacity: 1;
+  }
+
+  .card-hover-glow:hover {
+    border-color: hsl(var(--primary) / 0.2);
+  }
+
+  .card-hover-glow:hover {
+    transform: translateY(-12px);
+  }
+
+  /* Professional page transitions */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: pageEnter 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Enhanced button ripple effect */
+  .button-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .button-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Professional navbar animations */
+  .navbar-slide-down {
+    animation: navbarSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-item-reveal {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: navItemReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .logo-glow {
+    position: relative;
+  }
+
+  .logo-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--portfolio-accent)), hsl(var(--primary)));
+    border-radius: 50%;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+  }
+
+  .logo-glow:hover::before {
+    opacity: 0.4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes headingReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(20px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes staggerFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectGridEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes formFieldReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes professionalFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(0.5deg);
+  }
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navItemReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes panelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
