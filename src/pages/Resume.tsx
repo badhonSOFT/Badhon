@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -49,7 +48,6 @@ const Resume = () => {
   return (
     <div className="min-h-screen bg-background page-enter">
       <ScrollProgress />
-      <Header />
       
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -60,56 +58,56 @@ const Resume = () => {
       
       <main className="pt-16 relative z-10">
         {/* Hero Header */}
-        <section className="py-32 px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="mx-auto max-w-5xl">
             {/* Main Title */}
-            <div className="text-center mb-16">
-              <h1 className="text-6xl font-bold tracking-tight text-foreground sm:text-7xl lg:text-8xl animate-heading-reveal animate-hover-glow mb-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow mb-4 sm:mb-6">
                 <span className="animate-text-shimmer">Badhon Kumar Roy</span>
               </h1>
-              <p className="text-2xl text-primary font-semibold mb-8 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+              <p className="text-lg sm:text-xl lg:text-2xl text-primary font-semibold mb-4 sm:mb-8 animate-slide-up" style={{ animationDelay: "0.3s" }}>
                 Software Engineer & Web Developer
               </p>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: "0.5s" }}>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up px-4 sm:px-0" style={{ animationDelay: "0.5s" }}>
                 4+ years of expertise in creating scalable web solutions for businesses worldwide
               </p>
             </div>
 
             {/* Contact Info & Download */}
-            <div className="glass-card rounded-3xl p-8 shadow-xl backdrop-blur-xl border-0 animate-scale-in" style={{ animationDelay: "0.7s" }}>
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-1">
-                  <div className="flex items-center justify-center lg:justify-start space-x-3 contact-card-enter" style={{ animationDelay: "0.8s" }}>
-                    <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
-                      <Mail className="h-5 w-5 text-primary" />
+            <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl backdrop-blur-xl border-0 animate-scale-in" style={{ animationDelay: "0.7s" }}>
+              <div className="flex flex-col gap-6 sm:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="flex items-center space-x-3 contact-card-enter" style={{ animationDelay: "0.8s" }}>
+                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
+                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
-                    <div className="text-center lg:text-left">
-                      <p className="text-sm font-medium text-muted-foreground">Email</p>
-                      <a href="mailto:badhonroy172@gmail.com" className="text-foreground font-semibold hover:text-primary transition-colors">
+                    <div>
+                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Email</p>
+                      <a href="mailto:badhonroy172@gmail.com" className="text-sm sm:text-base text-foreground font-semibold hover:text-primary transition-colors break-all">
                         badhonroy172@gmail.com
                       </a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-center lg:justify-start space-x-3 contact-card-enter" style={{ animationDelay: "0.9s" }}>
-                    <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
-                      <Phone className="h-5 w-5 text-primary" />
+                  <div className="flex items-center space-x-3 contact-card-enter" style={{ animationDelay: "0.9s" }}>
+                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
-                    <div className="text-center lg:text-left">
-                      <p className="text-sm font-medium text-muted-foreground">Phone</p>
-                      <a href="tel:01783147171" className="text-foreground font-semibold hover:text-primary transition-colors">
+                    <div>
+                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Phone</p>
+                      <a href="tel:01783147171" className="text-sm sm:text-base text-foreground font-semibold hover:text-primary transition-colors">
                         01783147171
                       </a>
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-center lg:justify-start space-x-3 contact-card-enter" style={{ animationDelay: "1s" }}>
-                    <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
-                      <MapPin className="h-5 w-5 text-primary" />
+                  <div className="flex items-center space-x-3 contact-card-enter sm:col-span-2 lg:col-span-1" style={{ animationDelay: "1s" }}>
+                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
+                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
-                    <div className="text-center lg:text-left">
-                      <p className="text-sm font-medium text-muted-foreground">Location</p>
-                      <p className="text-foreground font-semibold">Dhaka, Bangladesh</p>
+                    <div>
+                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Location</p>
+                      <p className="text-sm sm:text-base text-foreground font-semibold">Dhaka, Bangladesh</p>
                     </div>
                   </div>
                 </div>
@@ -118,10 +116,10 @@ const Resume = () => {
                   variant="hero" 
                   size="lg"
                   onClick={handleDownload} 
-                  className="px-8 py-4 text-lg font-semibold button-ripple hover:scale-105 transition-all duration-300 contact-card-enter"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold button-ripple hover:scale-105 transition-all duration-300 contact-card-enter"
                   style={{ animationDelay: "1.1s" }}
                 >
-                  <Download className="mr-3 h-6 w-6" />
+                  <Download className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
                   Download Resume
                 </Button>
               </div>

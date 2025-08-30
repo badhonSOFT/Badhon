@@ -29,15 +29,20 @@ export function Footer() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-portfolio-accent/2 rounded-full blur-3xl"></div>
       
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1 animate-stagger-fade" style={{ animationDelay: "0.1s" }}>
             <div className="flex items-center mb-6">
               <img 
                 src="/images/logo.png" 
                 alt="Badhon Roy Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-12 h-12 object-contain dark:hidden"
+              />
+              <img 
+                src="/images/white_logo.png" 
+                alt="Badhon Roy Logo" 
+                className="w-12 h-12 object-contain hidden dark:block"
               />
             </div>
             <p className="text-muted-foreground text-base mb-6 leading-relaxed">

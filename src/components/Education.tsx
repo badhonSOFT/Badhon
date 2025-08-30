@@ -18,13 +18,13 @@ const education = [
 
 export function Education() {
   return (
-    <section className="py-32 px-6 lg:px-8 relative">
+    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-20 section-reveal">
-          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl animate-heading-reveal animate-hover-glow">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20 section-reveal">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow">
             <span className="animate-gradient-shift">Education</span>
           </h2>
-          <p className="mt-6 text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal" style={{ animationDelay: "0.3s" }}>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
             My academic journey in computer science and engineering
           </p>
         </div>

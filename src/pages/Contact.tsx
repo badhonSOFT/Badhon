@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -131,7 +130,6 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background page-enter">
       <ScrollProgress />
-      <Header />
       
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -142,44 +140,44 @@ const Contact = () => {
       
       <main className="pt-16 relative z-10">
         {/* Hero Section */}
-        <section className="py-32 px-6 lg:px-8 relative overflow-hidden">
+        <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-7xl lg:text-8xl animate-heading-reveal animate-hover-glow">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow">
               <span className="animate-text-shimmer">Let's Work Together</span>
             </h1>
-            <p className="mt-8 text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal" style={{ animationDelay: "0.3s" }}>
+            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
               Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your digital goals with cutting-edge technology and exceptional design.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 animate-scale-in" style={{ animationDelay: "0.6s" }}>
-              <Badge variant="secondary" className="px-4 py-2 glass-card border-0 shadow-soft">
-                <Clock className="h-4 w-4 mr-2" />
+            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 animate-scale-in" style={{ animationDelay: "0.6s" }}>
+              <Badge variant="secondary" className="px-3 sm:px-4 py-1.5 sm:py-2 glass-card border-0 shadow-soft text-xs sm:text-sm">
+                <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                 24h Response Time
               </Badge>
-              <Badge variant="secondary" className="px-4 py-2 glass-card border-0 shadow-soft">
-                <CheckCircle className="h-4 w-4 mr-2" />
+              <Badge variant="secondary" className="px-3 sm:px-4 py-1.5 sm:py-2 glass-card border-0 shadow-soft text-xs sm:text-sm">
+                <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                 100+ Projects Delivered
               </Badge>
             </div>
           </div>
         </section>
 
-        <div className="px-6 lg:px-8 pb-32">
+        <div className="px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 lg:pb-32">
           <div className="mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
               {/* Contact Form */}
               <div className="section-reveal" style={{ animationDelay: "0.4s" }}>
                 <Card className="glass-card border-0 shadow-xl backdrop-blur-xl overflow-hidden">
-                  <CardHeader className="pb-6">
-                    <CardTitle className="text-3xl font-bold animate-slide-in-left">
+                  <CardHeader className="pb-4 sm:pb-6 p-4 sm:p-6">
+                    <CardTitle className="text-2xl sm:text-3xl font-bold animate-slide-in-left">
                       Send me a message
                     </CardTitle>
-                    <p className="text-muted-foreground animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
+                    <p className="text-sm sm:text-base text-muted-foreground animate-slide-in-left" style={{ animationDelay: "0.1s" }}>
                       I'd love to hear about your project. Fill out the form below and I'll get back to you within 24 hours.
                     </p>
                   </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <CardContent className="p-4 sm:p-6">
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div className="form-field" style={{ animationDelay: "0.2s" }}>
                           <Label htmlFor="name" className="text-sm font-semibold">Name *</Label>
                           <Input
@@ -188,7 +186,7 @@ const Contact = () => {
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            className="mt-2 h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300"
+                            className="mt-2 h-10 sm:h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300 text-sm sm:text-base"
                             placeholder="Your full name"
                           />
                         </div>
@@ -201,7 +199,7 @@ const Contact = () => {
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            className="mt-2 h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300"
+                            className="mt-2 h-10 sm:h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300 text-sm sm:text-base"
                             placeholder="your@email.com"
                           />
                         </div>
@@ -215,7 +213,7 @@ const Contact = () => {
                           value={formData.subject}
                           onChange={handleInputChange}
                           required
-                          className="mt-2 h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300"
+                          className="mt-2 h-10 sm:h-12 border-0 bg-muted/50 focus:bg-background transition-all duration-300 text-sm sm:text-base"
                           placeholder="Project discussion, consultation, etc."
                         />
                       </div>
@@ -228,8 +226,8 @@ const Contact = () => {
                           value={formData.message}
                           onChange={handleInputChange}
                           required
-                          rows={6}
-                          className="mt-2 border-0 bg-muted/50 focus:bg-background transition-all duration-300 resize-none"
+                          rows={5}
+                          className="mt-2 border-0 bg-muted/50 focus:bg-background transition-all duration-300 resize-none text-sm sm:text-base"
                           placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
                         />
                       </div>
@@ -239,18 +237,18 @@ const Contact = () => {
                         variant="hero"
                         size="lg"
                         disabled={isSubmitting}
-                        className="w-full h-14 text-lg font-semibold button-ripple hover:scale-[1.02] transition-all duration-300 form-field"
+                        className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold button-ripple hover:scale-[1.02] transition-all duration-300 form-field"
                         style={{ animationDelay: "0.6s" }}
                       >
                         {isSubmitting ? (
                           <>
-                            <div className="animate-spin h-5 w-5 mr-2 border-2 border-white border-t-transparent rounded-full"></div>
+                            <div className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2 border-2 border-white border-t-transparent rounded-full"></div>
                             Sending Message...
                           </>
                         ) : (
                           <>
                             Send Message
-                            <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                            <Send className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                           </>
                         )}
                       </Button>
@@ -263,36 +261,36 @@ const Contact = () => {
               <div className="space-y-12">
                 {/* Direct Contact */}
                 <div className="section-reveal" style={{ animationDelay: "0.6s" }}>
-                  <h3 className="text-3xl font-bold text-foreground mb-8 animate-slide-in-right">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 animate-slide-in-right">
                     Get in touch directly
                   </h3>
-                  <div className="grid grid-cols-1 gap-6">
+                  <div className="grid grid-cols-1 gap-4 sm:gap-6">
                     {contactInfo.map((info, index) => (
                       <Card 
                         key={info.label}
                         className="group card-hover-glow glass-card border-0 shadow-soft backdrop-blur-xl overflow-hidden contact-card-enter"
                         style={{ animationDelay: `${0.1 * index + 0.7}s` }}
                       >
-                        <CardContent className="p-8">
-                          <div className="flex items-start space-x-6">
-                            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/10 to-portfolio-accent/10 rounded-2xl group-hover:from-primary/20 group-hover:to-portfolio-accent/20 transition-all duration-300 group-hover:scale-110">
-                              <info.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
+                        <CardContent className="p-4 sm:p-6 lg:p-8">
+                          <div className="flex items-start space-x-3 sm:space-x-4 lg:space-x-6">
+                            <div className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary/10 to-portfolio-accent/10 rounded-xl sm:rounded-2xl group-hover:from-primary/20 group-hover:to-portfolio-accent/20 transition-all duration-300 group-hover:scale-110">
+                              <info.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-primary group-hover:scale-110 transition-transform" />
                             </div>
-                            <div className="flex-1">
-                              <h4 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{info.label}</h4>
-                              <p className="text-muted-foreground mb-3 text-sm leading-relaxed">{info.description}</p>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-1 sm:mb-2 group-hover:text-primary transition-colors">{info.label}</h4>
+                              <p className="text-muted-foreground mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed">{info.description}</p>
                               {info.href !== "#" ? (
                                 <a
                                   href={info.href}
                                   target={info.href.startsWith("http") ? "_blank" : undefined}
                                   rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                  className="text-primary hover:text-primary-hover transition-colors font-semibold text-lg inline-flex items-center group/link"
+                                  className="text-primary hover:text-primary-hover transition-colors font-semibold text-sm sm:text-base lg:text-lg inline-flex items-center group/link break-all"
                                 >
                                   {info.value}
-                                  <ExternalLink className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                                  <ExternalLink className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover/link:translate-x-1 transition-transform flex-shrink-0" />
                                 </a>
                               ) : (
-                                <span className="text-foreground font-semibold text-lg">{info.value}</span>
+                                <span className="text-foreground font-semibold text-sm sm:text-base lg:text-lg">{info.value}</span>
                               )}
                             </div>
                           </div>
