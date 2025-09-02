@@ -41,6 +41,13 @@ const featuredProjects = [
     tech: ["CodeIgniter", "Payment Gateway", "Admin Panel"]
   },
   {
+    title: "SOHUB Shop",
+    description: "E-commerce website built with WordPress",
+    url: "https://shop.sohub.com.bd/",
+    category: "E-commerce",
+    tech: ["WordPress", "WooCommerce", "PHP"]
+  },
+  {
     title: "Ximpul",
     description: "E-commerce website with React and Supabase",
     url: "https://ximpul.com/",

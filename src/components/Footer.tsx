@@ -18,57 +18,53 @@ const services = [
   "Web Application Development"
 ];
 
-const currentYear = new Date().getFullYear();
+const currentYear = 2025;
 
 export function Footer() {
   
   return (
-    <footer className="bg-muted/30 border-t border-border/20 backdrop-blur-xl relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-t from-muted/40 via-muted/20 to-transparent"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-portfolio-accent/2 rounded-full blur-3xl"></div>
+    <footer className="relative bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 border-t border-slate-200/50 dark:border-slate-700/50">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]"></div>
       
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1 animate-stagger-fade" style={{ animationDelay: "0.1s" }}>
-            <div className="flex items-center mb-6">
-              <img 
-                src="/images/logo.png" 
-                alt="Badhon Roy Logo" 
-                className="w-12 h-12 object-contain dark:hidden"
-              />
-              <img 
-                src="/images/white_logo.png" 
-                alt="Badhon Roy Logo" 
-                className="w-12 h-12 object-contain hidden dark:block"
-              />
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        {/* Main content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          
+          {/* Brand Section */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">B</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Badhon Roy</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">Software Engineer</p>
+              </div>
             </div>
-            <p className="text-muted-foreground text-base mb-6 leading-relaxed">
-              Building clean, scalable web apps and business platforms with passion and precision.
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Crafting exceptional digital experiences with modern web technologies and innovative solutions.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/badhonroy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 p-2 rounded-xl hover:bg-primary/10"
-              >
-                <Github className="h-6 w-6" />
-              </a>
-            </div>
+            <a
+              href="https://github.com/badhonSOFT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+            >
+              <Github className="h-5 w-5" />
+              <span className="text-sm font-medium">Follow on GitHub</span>
+            </a>
           </div>
 
           {/* Quick Links */}
-          <div className="animate-stagger-fade" style={{ animationDelay: "0.2s" }}>
-            <h3 className="text-lg font-semibold text-foreground mb-6 animate-slide-in-left">Quick Links</h3>
-            <ul className="space-y-4">
-              {quickLinks.map((link, index) => (
-                <li key={link.name} className="animate-fade-in" style={{ animationDelay: `${index * 50 + 300}ms` }}>
+          <div className="space-y-6">
+            <h4 className="font-semibold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Navigation</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 block"
+                    className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -78,12 +74,12 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div className="animate-stagger-fade" style={{ animationDelay: "0.3s" }}>
-            <h3 className="text-lg font-semibold text-foreground mb-6 animate-slide-in-left">Services</h3>
-            <ul className="space-y-4">
-              {services.map((service, index) => (
-                <li key={service} className="animate-fade-in" style={{ animationDelay: `${index * 50 + 400}ms` }}>
-                  <span className="text-base text-muted-foreground block">
+          <div className="space-y-6">
+            <h4 className="font-semibold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Services</h4>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service}>
+                  <span className="text-slate-600 dark:text-slate-400 text-sm">
                     {service}
                   </span>
                 </li>
@@ -91,69 +87,55 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details */}
-          <div className="animate-stagger-fade" style={{ animationDelay: "0.4s" }}>
-            <h3 className="text-lg font-semibold text-foreground mb-6 animate-slide-in-left">Contact</h3>
-            <ul className="space-y-4">
-              <li className="animate-fade-in" style={{ animationDelay: "500ms" }}>
-                <a
-                  href="tel:01783147171"
-                  className="flex items-center text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 p-2 rounded-xl hover:bg-primary/5"
-                >
-                  <Phone className="h-5 w-5 mr-3" />
-                  01783147171
-                </a>
-              </li>
-              <li className="animate-fade-in" style={{ animationDelay: "550ms" }}>
-                <a
-                  href="mailto:badhonroy172@gmail.com"
-                  className="flex items-center text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 p-2 rounded-xl hover:bg-primary/5"
-                >
-                  <Mail className="h-5 w-5 mr-3" />
-                  badhonroy172@gmail.com
-                </a>
-              </li>
-              <li className="animate-fade-in" style={{ animationDelay: "600ms" }}>
-                <a
-                  href="https://wa.me/8801783147171"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 p-2 rounded-xl hover:bg-primary/5"
-                >
-                  <ExternalLink className="h-5 w-5 mr-3" />
-                  WhatsApp
-                </a>
-              </li>
-              <li className="animate-fade-in" style={{ animationDelay: "650ms" }}>
-                <div className="flex items-center text-base text-muted-foreground p-2">
-                  <MapPin className="h-5 w-5 mr-3" />
-                  Mohammadpur, Dhaka 1207
+          {/* Contact */}
+          <div className="space-y-6">
+            <h4 className="font-semibold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Get in Touch</h4>
+            <div className="space-y-4">
+              <a
+                href="mailto:badhonroy172@gmail.com"
+                className="flex items-center space-x-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 group"
+              >
+                <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors">
+                  <Mail className="h-4 w-4" />
                 </div>
-              </li>
-            </ul>
+                <span className="text-sm">badhonroy172@gmail.com</span>
+              </a>
+              <a
+                href="tel:01783147171"
+                className="flex items-center space-x-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 group"
+              >
+                <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 transition-colors">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <span className="text-sm">01783147171</span>
+              </a>
+              <a
+                href="https://wa.me/8801783147171"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-slate-600 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 group"
+              >
+                <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-green-50 dark:group-hover:bg-green-900/20 transition-colors">
+                  <ExternalLink className="h-4 w-4" />
+                </div>
+                <span className="text-sm">WhatsApp Chat</span>
+              </a>
+              <div className="flex items-center space-x-3 text-slate-600 dark:text-slate-400">
+                <div className="w-8 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <span className="text-sm">Mohammadpur, Dhaka 1207</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-border/20 animate-fade-in" style={{ animationDelay: "0.8s" }}>
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <p className="text-base text-muted-foreground">
-              © {currentYear} Badhon Kumar Roy — All rights reserved.
+        {/* Bottom Section */}
+        <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-slate-700/60">
+          <div className="text-center">
+            <p className="text-slate-600 dark:text-slate-400 text-sm">
+              © {currentYear} Badhon Kumar Roy. All rights reserved.
             </p>
-            <div className="flex space-x-8 mt-6 md:mt-0">
-              <Link
-                to="/contact"
-                className="text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-              >
-                Contact
-              </Link>
-              <a
-                href="#"
-                className="text-base text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105"
-              >
-                Privacy
-              </a>
-            </div>
           </div>
         </div>
       </div>

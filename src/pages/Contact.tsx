@@ -185,7 +185,7 @@ const Contact = () => {
               </Badge>
               <Badge variant="secondary" className="px-3 sm:px-4 py-1.5 sm:py-2 glass-card border-0 shadow-soft text-xs sm:text-sm">
                 <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
-                100+ Projects Delivered
+                8 Projects Delivered
               </Badge>
             </div>
           </div>
