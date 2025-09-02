@@ -5,13 +5,13 @@ const education = [
   {
     degree: "B.Sc. in Computer Science & Engineering",
     institution: "World University of Bangladesh",
-    period: "2020 - 2024",
-    status: "Completed"
+    period: "2024 - 2027",
+    status: "Running"
   },
   {
     degree: "Diploma in Computer Science & Engineering", 
     institution: "Kurigram Polytechnic Institute",
-    period: "2017 - 2020",
+    period: "2017 - 2022",
     status: "Completed"
   }
 ];

@@ -10,59 +10,59 @@ import { ExternalLink, Filter } from "lucide-react";
 const allProjects = [
   {
     title: "Deepal",
-    description: "Modern corporate website for leading automotive company with responsive design and content management system",
+    description: "Car company website with modern design and comprehensive vehicle showcase",
     url: "http://deepal.com.bd/",
     category: "Website",
     tech: ["PHP", "MySQL", "Bootstrap", "JavaScript"]
   },
   {
     title: "GAC",
-    description: "Professional business website with custom CMS and modern design patterns",
+    description: "Car company website featuring automotive products and services",
     url: "https://gac.com.bd/",
     category: "Website",
     tech: ["CodeIgniter", "MySQL", "JavaScript", "CSS3"]
   },
   {
-    title: "Ximpul",
-    description: "Dynamic business platform with user management and content delivery",
-    url: "https://ximpul.com/",
-    category: "Website",
-    tech: ["PHP", "MySQL", "Bootstrap"]
-  },
-  {
     title: "Smart VM (SOHUB)",
-    description: "Comprehensive vehicle management system with real-time tracking and analytics",
+    description: "Vending machine management portal with real-time monitoring and analytics",
     url: "https://smart-vm.sohub.com.bd/",
     category: "Web App",
     tech: ["CodeIgniter", "MySQL", "Ajax", "Chart.js"]
   },
   {
     title: "SOHUB Connect",
-    description: "Business networking platform connecting professionals and organizations",
+    description: "Website and admin portal for business networking and management",
     url: "https://connect.sohub.com.bd/",
     category: "Web App",
-    tech: ["PHP", "MySQL", "REST API", "WebSocket"]
+    tech: ["PHP", "MySQL", "Admin Panel", "REST API"]
   },
   {
-    title: "Farmers Garden BD",
-    description: "Full-featured e-commerce platform for agricultural products with payment gateway integration",
-    url: "https://www.farmersgardenbd.com/",
+    title: "Farmers Garden",
+    description: "E-commerce website and admin portal for agricultural products",
+    url: "https://fg.tolpar.com.bd/",
     category: "E-commerce",
-    tech: ["CodeIgniter", "Payment Gateway", "MySQL", "SSL Commerce"]
+    tech: ["CodeIgniter", "Payment Gateway", "MySQL", "Admin Panel"]
   },
   {
     title: "SOHUB Shop",
-    description: "Multi-vendor e-commerce solution with inventory management and vendor dashboard",
+    description: "E-commerce website built with WordPress for online shopping",
     url: "https://shop.sohub.com.bd/",
     category: "E-commerce",
-    tech: ["PHP", "MySQL", "Payment Integration", "Admin Panel"]
+    tech: ["WordPress", "WooCommerce", "PHP", "MySQL"]
   },
   {
     title: "Tolpar",
-    description: "Modern business website with portfolio showcase and service management",
+    description: "Vending machine order and machine management portal with admin features",
     url: "https://tolpar.com.bd/",
-    category: "Website",
-    tech: ["PHP", "MySQL", "Responsive Design"]
+    category: "Web App",
+    tech: ["PHP", "MySQL", "Admin Panel", "Order Management"]
+  },
+  {
+    title: "Ximpul",
+    description: "E-commerce website with modern React frontend and Supabase backend",
+    url: "https://ximpul.com/",
+    category: "E-commerce",
+    tech: ["React", "Supabase", "JavaScript", "Admin Panel"]
   }
 ];
 

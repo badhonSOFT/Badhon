@@ -10,7 +10,7 @@ const experiences = [
   {
     title: "Freelance Software Engineer",
     company: "Self-Employed",
-    period: "2020 - Present",
+    period: "2025 - Present",
     location: "Dhaka, Bangladesh",
     type: "Freelance",
     achievements: [
@@ -32,10 +32,10 @@ const projects = [
 ];
 
 const skills = {
-  "Programming Languages": ["PHP", "JavaScript", "TypeScript", "SQL"],
-  "Frameworks & Libraries": ["CodeIgniter", "React", "Laravel", "jQuery"],
+  "Programming Languages": ["PHP", "JavaScript", "SQL"],
+  "Frameworks & Libraries": ["CodeIgniter", "React"],
   "Frontend Technologies": ["HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
-  "Backend & Database": ["MySQL", "MongoDB", "REST APIs", "Ajax"],
+  "Backend & Database": ["MySQL", "Supabase", "REST APIs", "Ajax"],
   "Tools & Technologies": ["Git", "Docker", "Linux", "cPanel"]
 };
 
@@ -258,7 +258,7 @@ const Resume = () => {
                     </p>
                     <div className="flex items-center text-muted-foreground animate-slide-in-left" style={{ animationDelay: "1s" }}>
                       <Award className="h-4 w-4 mr-2" />
-                      <span className="text-sm font-medium">2020 - 2024</span>
+                      <span className="text-sm font-medium">2024 - 2027</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -281,7 +281,7 @@ const Resume = () => {
                     </p>
                     <div className="flex items-center text-muted-foreground animate-slide-in-left" style={{ animationDelay: "1.1s" }}>
                       <Award className="h-4 w-4 mr-2" />
-                      <span className="text-sm font-medium">2017 - 2020</span>
+                      <span className="text-sm font-medium">2017 - 2022</span>
                     </div>
                   </CardContent>
                 </Card>

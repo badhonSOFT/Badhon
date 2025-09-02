@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -97,25 +98,39 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      // Send email to admin
+      await emailjs.send(
+        'service_2kgela9',
+        'template_903bogq', 
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'badhonroy172@gmail.com'
         },
-        body: JSON.stringify(formData),
+        '4tWkCKEvWyIUhQkex'
+      );
+
+      // Send confirmation to customer
+      await emailjs.send(
+        'service_2kgela9',
+        'template_9krnq54',
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        '4tWkCKEvWyIUhQkex'
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
       });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        throw new Error(result.error || 'Failed to send message');
-      }
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast({
         title: "Failed to send message",
@@ -125,6 +140,21 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
+
+    // Save message to localStorage for admin
+    const message = {
+      id: Date.now().toString(),
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      date: new Date().toLocaleString(),
+      read: false
+    };
+    
+    const existingMessages = JSON.parse(localStorage.getItem('portfolio_messages') || '[]');
+    existingMessages.unshift(message);
+    localStorage.setItem('portfolio_messages', JSON.stringify(existingMessages));
   };
 
   return (
@@ -300,56 +330,38 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp CTA */}
-                <div className="section-reveal" style={{ animationDelay: "0.8s" }}>
-                  <Card className="glass-card border-primary/20 shadow-xl backdrop-blur-xl overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-portfolio-accent/5"></div>
-                    <CardContent className="p-10 text-center relative z-10">
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-portfolio-accent/20 rounded-full mb-6 animate-float">
-                        <MessageCircle className="h-10 w-10 text-primary" />
-                      </div>
-                      <h4 className="text-2xl font-bold text-foreground mb-4">
-                        Prefer to chat instantly?
-                      </h4>
-                      <p className="text-muted-foreground mb-8 text-lg max-w-md mx-auto leading-relaxed">
-                        WhatsApp is the fastest way to get a response from me. Available 16 hours a day.
-                      </p>
-                      <Button variant="cta" size="lg" asChild className="w-full sm:w-auto px-8 py-4 text-lg font-semibold button-ripple hover:scale-105 transition-all duration-300">
-                        <a href="https://wa.me/8801783147171" target="_blank" rel="noopener noreferrer">
-                          Start WhatsApp Chat
-                          <MessageCircle className="ml-3 h-6 w-6" />
-                        </a>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </div>
 
-                {/* FAQ */}
-                <div className="section-reveal" style={{ animationDelay: "1s" }}>
-                  <h3 className="text-3xl font-bold text-foreground mb-8 animate-slide-in-right">
-                    Frequently Asked Questions
-                  </h3>
-                  <Card className="glass-card border-0 shadow-xl backdrop-blur-xl">
-                    <CardContent className="p-8">
-                      <Accordion type="single" collapsible className="w-full">
-                        {faqs.map((faq, index) => (
-                          <AccordionItem 
-                            key={index} 
-                            value={`item-${index}`}
-                            className="border-b border-muted/20 last:border-b-0"
-                          >
-                            <AccordionTrigger className="text-left hover:text-primary transition-colors py-6 text-lg font-semibold hover:no-underline">
-                              {faq.question}
-                            </AccordionTrigger>
-                            <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
-                              {faq.answer}
-                            </AccordionContent>
-                          </AccordionItem>
-                        ))}
-                      </Accordion>
-                    </CardContent>
-                  </Card>
-                </div>
+
+
+              </div>
+            </div>
+            
+            {/* FAQ Section - Centered */}
+            <div className="section-reveal mt-16 sm:mt-24 lg:mt-32" style={{ animationDelay: "1s" }}>
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-3xl font-bold text-foreground mb-8 animate-slide-in-right text-center">
+                  Frequently Asked Questions
+                </h3>
+                <Card className="glass-card border-0 shadow-xl backdrop-blur-xl">
+                  <CardContent className="p-8">
+                    <Accordion type="single" collapsible className="w-full">
+                      {faqs.map((faq, index) => (
+                        <AccordionItem 
+                          key={index} 
+                          value={`item-${index}`}
+                          className="border-b border-muted/20 last:border-b-0"
+                        >
+                          <AccordionTrigger className="text-left hover:text-primary transition-colors py-6 text-lg font-semibold hover:no-underline">
+                            {faq.question}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>

@@ -7,45 +7,45 @@ import { Link } from "react-router-dom";
 const featuredProjects = [
   {
     title: "Deepal",
-    description: "Corporate website for automotive company",
+    description: "Car company website with vehicle showcase",
     url: "http://deepal.com.bd/",
     category: "Website",
     tech: ["PHP", "MySQL", "Bootstrap"]
   },
   {
     title: "GAC",
-    description: "Modern business website with CMS",
+    description: "Car company website with automotive services",
     url: "https://gac.com.bd/",
     category: "Website", 
     tech: ["CodeIgniter", "MySQL", "JavaScript"]
   },
   {
     title: "Smart VM (SOHUB)",
-    description: "Vehicle management web application",
+    description: "Vending machine management portal",
     url: "https://smart-vm.sohub.com.bd/",
     category: "Web App",
     tech: ["CodeIgniter", "MySQL", "Ajax"]
   },
   {
     title: "SOHUB Connect",
-    description: "Business networking platform",
+    description: "Website and admin portal for business management",
     url: "https://connect.sohub.com.bd/",
     category: "Web App",
-    tech: ["PHP", "MySQL", "REST API"]
+    tech: ["PHP", "MySQL", "Admin Panel"]
   },
   {
-    title: "Farmers Garden BD",
-    description: "E-commerce platform for agricultural products",
-    url: "https://www.farmersgardenbd.com/",
+    title: "Farmers Garden",
+    description: "E-commerce website and admin portal",
+    url: "https://fg.tolpar.com.bd/",
     category: "E-commerce",
-    tech: ["CodeIgniter", "Payment Gateway", "MySQL"]
+    tech: ["CodeIgniter", "Payment Gateway", "Admin Panel"]
   },
   {
-    title: "SOHUB Shop",
-    description: "Multi-vendor e-commerce solution",
-    url: "https://shop.sohub.com.bd/",
+    title: "Ximpul",
+    description: "E-commerce website with React and Supabase",
+    url: "https://ximpul.com/",
     category: "E-commerce",
-    tech: ["PHP", "MySQL", "Payment Integration"]
+    tech: ["React", "Supabase", "JavaScript"]
   }
 ];
 

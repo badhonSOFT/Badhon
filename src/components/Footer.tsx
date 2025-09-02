@@ -23,9 +23,9 @@ const currentYear = new Date().getFullYear();
 export function Footer() {
   
   return (
-    <footer className="glass-card border-t border-border/20 backdrop-blur-xl relative overflow-hidden">
+    <footer className="bg-muted/30 border-t border-border/20 backdrop-blur-xl relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-muted/40 via-muted/20 to-transparent"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-portfolio-accent/2 rounded-full blur-3xl"></div>
       
