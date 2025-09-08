@@ -86,18 +86,6 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
           <ThemeToggle />
-          <Button 
-            asChild 
-            className="relative overflow-hidden rounded-full bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-large hover:shadow-xl transition-all duration-300 group button-ripple"
-          >
-            <Link to="/contact">
-              <span className="relative z-10 flex items-center gap-2">
-                <Sparkles className="h-4 w-4 animate-pulse" />
-                Let's Talk
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            </Link>
-          </Button>
         </div>
       </nav>
 

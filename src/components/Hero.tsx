@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
+
 export function Hero() {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById("projects");
@@ -24,20 +25,16 @@ export function Hero() {
           <div className="text-center lg:text-left order-2 lg:order-1">
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight text-foreground animate-heading-reveal leading-tight animate-hover-glow font-sf-pro">
-              <span className="block animate-slide-in-left" style={{ animationDelay: "0.2s" }}>
-                Hi, I'm
+              <span className="animate-gradient-shift block" style={{ animationDelay: "0.2s" }}>
+                Badhon Kumar Roy
               </span>
-              <span className="animate-gradient-shift block mt-1 sm:mt-2" style={{ animationDelay: "0.5s" }}>
-                Badhon
-              </span>
-              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl animate-slide-in-right" style={{ animationDelay: "0.8s" }}>
-                — Software Engineer
+              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl animate-slide-in-right" style={{ animationDelay: "0.5s" }}>
+                Software Engineer
               </span>
             </h1>
             
-            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-2xl text-balance animate-slide-up font-light section-reveal font-sf-pro mx-auto lg:mx-0" style={{ animationDelay: "1.1s" }}>
-              I craft websites, e‑commerce, and web apps with CodeIgniter, React & PHP.
-              Building clean, scalable solutions for businesses worldwide.
+            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-2xl text-balance animate-slide-up font-light section-reveal font-sf-pro mx-auto lg:mx-0" style={{ animationDelay: "0.8s" }}>
+              Specialized in developing robust web applications, e-commerce platforms, and business solutions using modern technologies including React, PHP, and CodeIgniter. Delivering scalable, high-performance solutions for global enterprises.
             </p>
             
             <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start animate-scale-in" style={{ animationDelay: "1.4s" }}>
@@ -71,6 +68,7 @@ export function Hero() {
               <div className="absolute inset-0 hero-gradient rounded-3xl blur-3xl opacity-30 scale-105"></div>
               <div className="relative glass-card rounded-3xl p-2 sm:p-3 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] transform">
                 <div className="absolute inset-0 hero-gradient rounded-3xl opacity-5"></div>
+
                 <img
                   src="/images/my_image.jpg"
                   alt="Badhon Kumar Roy - Software Engineer"
