@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "react-router-dom";
 
@@ -21,7 +22,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[9999] w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-border/50 shadow-lg">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-2 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-1 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link 
@@ -86,20 +87,25 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
           <ThemeToggle />
+          <RainbowButton asChild>
+            <Link to="/contact">
+              Contact
+            </Link>
+          </RainbowButton>
         </div>
       </nav>
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-16 left-0 right-0 z-[9998] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg pointer-events-auto">
-          <nav className="px-4 py-4 space-y-1">
+        <div className="lg:hidden fixed top-[4.5rem] left-0 right-0 z-[9998] bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 shadow-lg pointer-events-auto">
+          <nav className="px-4 py-4 space-y-1 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
             {navigation.map((item) => {
               const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`block px-4 py-4 rounded-lg text-base font-medium transition-colors min-h-[44px] flex items-center ${
                     isActive
                       ? "bg-primary text-white"
                       : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -111,7 +117,7 @@ export function Header() {
               );
             })}
             <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
-              <Button asChild className="w-full">
+              <Button asChild className="w-full min-h-[44px]">
                 <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
                   Let's Talk
                 </Link>

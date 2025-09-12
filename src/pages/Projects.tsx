@@ -5,6 +5,8 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PixelCanvas } from "@/components/ui/pixel-canvas";
+import { AnimatedText } from "@/components/ui/animated-text";
 import { ExternalLink, Filter } from "lucide-react";
 
 const allProjects = [
@@ -96,9 +98,15 @@ const Projects = () => {
         {/* Hero Section */}
         <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow">
-              <span className="animate-text-shimmer">My Projects</span>
-            </h1>
+            <AnimatedText 
+              text="My Projects"
+              textClassName="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground"
+              underlineGradient="from-primary via-portfolio-accent to-primary"
+              underlineHeight="h-1 sm:h-2"
+              underlineOffset="-bottom-2 sm:-bottom-4"
+              duration={0.08}
+              delay={0.05}
+            />
             <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
               A comprehensive showcase of websites, web applications, and e-commerce solutions I've built for clients worldwide
             </p>
@@ -153,10 +161,16 @@ const Projects = () => {
               {filteredProjects.map((project, index) => (
                 <Card 
                   key={project.title}
-                  className="group card-hover-glow glass-card border-0 shadow-soft backdrop-blur-xl overflow-hidden project-grid-enter"
-                  style={{ animationDelay: `${index * 150}ms` }}
+                  className="group glass-card border-0 shadow-soft backdrop-blur-xl overflow-hidden relative"
                 >
-                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                  <PixelCanvas
+                    gap={10}
+                    speed={25}
+                    colors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                    variant="default"
+                    noFocus={true}
+                  />
+                  <CardContent className="p-4 sm:p-6 lg:p-8 relative z-10">
                     <div className="flex items-start justify-between mb-4 sm:mb-6">
                       <Badge 
                         variant="secondary" 

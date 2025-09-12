@@ -4,6 +4,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 import { Download, Mail, Phone, MapPin, ExternalLink, GraduationCap, Briefcase, Award } from "lucide-react";
 
 const experiences = [
@@ -41,13 +42,29 @@ const skills = {
 
 const Resume = () => {
   const handleDownload = () => {
-    // This would trigger a download of the PDF version
-    window.open('/resume-badhon-roy.pdf', '_blank');
+    try {
+      const newWindow = window.open('/resume-badhon-roy.pdf', '_blank');
+      if (!newWindow) {
+        // Fallback if popup is blocked
+        const link = document.createElement('a');
+        link.href = '/resume-badhon-roy.pdf';
+        link.download = 'Badhon-Kumar-Roy-Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    } catch (error) {
+      console.error('Failed to download resume:', error);
+      alert('Unable to download resume. Please try again later.');
+    }
   };
 
   return (
     <div className="min-h-screen bg-background page-enter">
       <ScrollProgress />
+      
+      {/* 3D Dotted Surface Background */}
+      <DottedSurface className="opacity-50 z-0" />
       
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -73,56 +90,17 @@ const Resume = () => {
               </p>
             </div>
 
-            {/* Contact Info & Download */}
-            <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl backdrop-blur-xl border-0 animate-scale-in" style={{ animationDelay: "0.7s" }}>
-              <div className="flex flex-col gap-6 sm:gap-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                  <div className="flex items-center space-x-3 contact-card-enter" style={{ animationDelay: "0.8s" }}>
-                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
-                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Email</p>
-                      <a href="mailto:badhonroy172@gmail.com" className="text-sm sm:text-base text-foreground font-semibold hover:text-primary transition-colors break-all">
-                        badhonroy172@gmail.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3 contact-card-enter" style={{ animationDelay: "0.9s" }}>
-                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
-                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Phone</p>
-                      <a href="tel:01783147171" className="text-sm sm:text-base text-foreground font-semibold hover:text-primary transition-colors">
-                        01783147171
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3 contact-card-enter sm:col-span-2 lg:col-span-1" style={{ animationDelay: "1s" }}>
-                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-xl">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs sm:text-sm font-medium text-muted-foreground">Location</p>
-                      <p className="text-sm sm:text-base text-foreground font-semibold">Dhaka, Bangladesh</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={handleDownload} 
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold button-ripple hover:scale-105 transition-all duration-300 contact-card-enter"
-                  style={{ animationDelay: "1.1s" }}
-                >
-                  <Download className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
-                  Download Resume
-                </Button>
-              </div>
+            {/* Download Button */}
+            <div className="text-center animate-scale-in" style={{ animationDelay: "0.7s" }}>
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={handleDownload} 
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold button-ripple hover:scale-105 transition-all duration-300"
+              >
+                <Download className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
+                Download Resume
+              </Button>
             </div>
           </div>
         </section>
@@ -365,6 +343,46 @@ const Resume = () => {
                         <ExternalLink className="ml-2 h-5 w-5" />
                       </a>
                     </Button>
+                  </div>
+                  
+                  {/* Contact Info */}
+                  <div className="mt-10">
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8"></div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="flex items-center space-x-3 contact-card-enter">
+                        <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
+                          <Mail className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-muted-foreground">Email</p>
+                          <a href="mailto:badhonroy172@gmail.com" className="text-base text-foreground font-semibold hover:text-primary transition-colors break-all">
+                            badhonroy172@gmail.com
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 contact-card-enter">
+                        <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
+                          <Phone className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-muted-foreground">Phone</p>
+                          <a href="tel:01783147171" className="text-base text-foreground font-semibold hover:text-primary transition-colors">
+                            01783147171
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 contact-card-enter sm:col-span-2 lg:col-span-1">
+                        <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-xl">
+                          <MapPin className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-muted-foreground">Location</p>
+                          <p className="text-base text-foreground font-semibold">Dhaka, Bangladesh</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

@@ -2,6 +2,8 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { GlowCard } from "@/components/ui/spotlight-card";
+import { AnimatedText } from "@/components/ui/animated-shiny-text";
 import { Link } from "react-router-dom";
 
 const featuredProjects = [
@@ -65,23 +67,29 @@ export function Projects() {
       <div className="absolute bottom-20 left-10 sm:bottom-40 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl"></div>
       
       <div className="mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 section-reveal">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow">
-            <span className="animate-text-shimmer">Featured Projects</span>
-          </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <AnimatedText 
+            text="Featured Projects"
+            textClassName="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight"
+            gradientColors="linear-gradient(90deg, hsl(var(--primary)), hsl(var(--portfolio-accent)), hsl(var(--primary)))"
+            gradientAnimationDuration={2}
+            hoverEffect={true}
+            className="py-0"
+          />
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto font-light px-4 sm:px-0">
             A showcase of websites and web applications I've built for clients around the world
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {featuredProjects.map((project, index) => (
-            <Card 
+            <GlowCard 
               key={project.title}
-              className="group hover-lift glass-card border-0 shadow-soft backdrop-blur-xl overflow-hidden animate-scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              customSize={true}
+              glowColor={index % 2 === 0 ? 'blue' : 'purple'}
+              className="group w-full h-auto"
             >
-              <CardContent className="p-4 sm:p-6 lg:p-8">
+              <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-3 sm:mb-4">
                   <Badge variant="secondary" className="text-xs px-2 sm:px-3 py-1 glass-card border-0 shadow-soft">
                     {project.category}
@@ -96,7 +104,7 @@ export function Projects() {
                   </a>
                 </div>
                 
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors animate-slide-in-left" style={{ animationDelay: `${index * 100 + 800}ms` }}>
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 
@@ -127,8 +135,8 @@ export function Projects() {
                     <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                   </a>
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </GlowCard>
           ))}
         </div>
 

@@ -1,5 +1,6 @@
 import { Globe, Palette, ShoppingCart, Settings, Code, Database } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const services = [
   {
@@ -56,10 +57,18 @@ export function Services() {
           {services.map((service, index) => (
             <Card 
               key={service.title} 
-              className="group hover-lift glass-card border-0 shadow-soft backdrop-blur-xl animate-scale-in"
+              className="group hover-lift glass-card border-0 shadow-soft backdrop-blur-xl animate-scale-in relative"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardContent className="p-6 sm:p-8">
+              <GlowingEffect
+                spread={40}
+                glow={true}
+                disabled={false}
+                proximity={64}
+                inactiveZone={0.01}
+                borderWidth={2}
+              />
+              <CardContent className="p-6 sm:p-8 relative z-10">
                 <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 hero-gradient rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-all duration-300 shadow-medium">
                   <service.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>

@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,12 +15,7 @@ import {
   Mail, Phone, MessageCircle, MapPin, Send, Clock, 
   CreditCard, FileText, CheckCircle, ExternalLink 
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { AccordionComponent } from "@/components/ui/faq-accordion";
 
 const contactInfo = [
   {
@@ -52,24 +48,7 @@ const contactInfo = [
   }
 ];
 
-const faqs = [
-  {
-    question: "What's your typical response time?",
-    answer: "I usually respond to emails and messages within 2-4 hours during business days. For urgent projects, WhatsApp is the fastest way to reach me."
-  },
-  {
-    question: "How do we start a new project?",
-    answer: "We begin with a discovery call to understand your requirements, then I provide a detailed proposal with timeline and costs. Once approved, we kick off with a 50% advance payment."
-  },
-  {
-    question: "What are your payment milestones?",
-    answer: "I work with a 50% advance and 50% on completion model for most projects. For larger projects, we can discuss milestone-based payments."
-  },
-  {
-    question: "Do you provide ongoing maintenance?",
-    answer: "Yes, I offer ongoing maintenance and support packages. This includes security updates, content updates, and technical support."
-  }
-];
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -162,23 +141,26 @@ const Contact = () => {
       <ScrollProgress />
       
       {/* Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-32 right-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute bottom-20 left-16 w-96 h-96 bg-portfolio-accent/5 rounded-full blur-3xl floating-element-delayed"></div>
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-gradient-to-br from-primary/3 to-portfolio-accent/3 rounded-full blur-3xl floating-element-slow"></div>
+      <div className="fixed inset-0 overflow-hidden pointer-events-none hidden sm:block">
+        <div className="absolute top-32 right-20 w-60 h-60 sm:w-80 sm:h-80 bg-primary/5 rounded-full blur-3xl floating-element"></div>
+        <div className="absolute bottom-20 left-16 w-72 h-72 sm:w-96 sm:h-96 bg-portfolio-accent/5 rounded-full blur-3xl floating-element-delayed"></div>
+        <div className="absolute top-1/3 left-1/3 w-80 h-80 sm:w-[500px] sm:h-[500px] bg-gradient-to-br from-primary/3 to-portfolio-accent/3 rounded-full blur-3xl floating-element-slow"></div>
       </div>
       
       <main className="pt-16 relative z-10">
         {/* Hero Section */}
         <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground animate-heading-reveal animate-hover-glow">
-              <span className="animate-text-shimmer">Let's Work Together</span>
-            </h1>
-            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto animate-slide-up font-light section-reveal px-4 sm:px-0" style={{ animationDelay: "0.3s" }}>
+            <AnimatedText 
+              text="Let's Work Together"
+              textClassName="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground"
+              underlineClassName="text-primary"
+              underlineDuration={2}
+            />
+            <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto font-light px-4 sm:px-0">
               Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your digital goals with cutting-edge technology and exceptional design.
             </p>
-            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4 animate-scale-in" style={{ animationDelay: "0.6s" }}>
+            <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
               <Badge variant="secondary" className="px-3 sm:px-4 py-1.5 sm:py-2 glass-card border-0 shadow-soft text-xs sm:text-sm">
                 <Clock className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                 24h Response Time
@@ -337,32 +319,8 @@ const Contact = () => {
             </div>
             
             {/* FAQ Section - Centered */}
-            <div className="section-reveal mt-16 sm:mt-24 lg:mt-32" style={{ animationDelay: "1s" }}>
-              <div className="max-w-4xl mx-auto">
-                <h3 className="text-3xl font-bold text-foreground mb-8 animate-slide-in-right text-center">
-                  Frequently Asked Questions
-                </h3>
-                <Card className="glass-card border-0 shadow-xl backdrop-blur-xl">
-                  <CardContent className="p-8">
-                    <Accordion type="single" collapsible className="w-full">
-                      {faqs.map((faq, index) => (
-                        <AccordionItem 
-                          key={index} 
-                          value={`item-${index}`}
-                          className="border-b border-muted/20 last:border-b-0"
-                        >
-                          <AccordionTrigger className="text-left hover:text-primary transition-colors py-6 text-lg font-semibold hover:no-underline">
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              </div>
+            <div className="mt-16 sm:mt-24 lg:mt-32">
+              <AccordionComponent />
             </div>
           </div>
         </div>

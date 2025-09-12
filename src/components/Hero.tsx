@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
@@ -13,11 +14,8 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-portfolio-accent/5"></div>
-      <div className="absolute -top-20 -right-20 sm:-top-40 sm:-right-40 w-40 h-40 sm:w-80 sm:h-80 hero-gradient rounded-full blur-3xl opacity-10"></div>
-      <div className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-40 h-40 sm:w-80 sm:h-80 bg-portfolio-accent rounded-full blur-3xl opacity-10"></div>
+    <BackgroundBeamsWithCollision className="min-h-screen">
+      <section className="min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-8 sm:pt-24 sm:pb-12 relative overflow-hidden">
       
       <div className="mx-auto max-w-7xl relative z-0 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
@@ -72,7 +70,7 @@ export function Hero() {
                 <img
                   src="/images/my_image.jpg"
                   alt="Badhon Kumar Roy - Software Engineer"
-                  className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] object-cover rounded-2xl relative z-10"
+                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px] object-cover rounded-2xl relative z-10"
                 />
                 <div className="absolute inset-2 sm:inset-3 rounded-2xl bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
               </div>
@@ -80,6 +78,7 @@ export function Hero() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </BackgroundBeamsWithCollision>
   );
 }
