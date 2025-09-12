@@ -10,7 +10,7 @@ interface Footer7Props {
   };
   sections?: Array<{
     title: string;
-    links: Array<{ name: string; href: string }>;
+    links: Array<{ name: string; href: string; external?: boolean }>;
   }>;
   description?: string;
   socialLinks?: Array<{
@@ -81,7 +81,7 @@ export const Footer7 = ({
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (
-    <section className="py-32">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white relative overflow-hidden">
       <div className="container mx-auto">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
@@ -92,12 +92,12 @@ export const Footer7 = ({
                   src={logo.src}
                   alt={logo.alt}
                   title={logo.title}
-                  className="h-8"
+                  className="h-8 w-auto"
                 />
               </a>
-              <h2 className="text-xl font-semibold">{logo.title}</h2>
+              {logo.title && <h2 className="text-xl font-semibold">{logo.title}</h2>}
             </div>
-            <p className="max-w-[70%] text-sm text-muted-foreground">
+            <p className="max-w-full lg:max-w-[70%] text-sm text-muted-foreground">
               {description}
             </p>
             <ul className="flex items-center space-x-6 text-muted-foreground">
@@ -110,7 +110,7 @@ export const Footer7 = ({
               ))}
             </ul>
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="grid w-full gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold">{section.title}</h3>
@@ -120,7 +120,13 @@ export const Footer7 = ({
                       key={linkIdx}
                       className="font-medium hover:text-primary"
                     >
-                      <a href={link.href}>{link.name}</a>
+                      <a 
+                        href={link.href}
+                        target={link.external || link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? "_blank" : undefined}
+                        rel={link.external || link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? "noopener noreferrer" : undefined}
+                      >
+                        {link.name}
+                      </a>
                     </li>
                   ))}
                 </ul>

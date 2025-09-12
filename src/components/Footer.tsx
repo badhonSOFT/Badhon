@@ -5,7 +5,6 @@ import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/#about" },
   { name: "Services", href: "/#services" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
@@ -33,7 +32,7 @@ const portfolioSections = [
     title: "Contact",
     links: [
       { name: "Email", href: "mailto:badhonroy172@gmail.com" },
-      { name: "Phone", href: "tel:01783147171" },
+      { name: "Phone", href: "tel:+8801783147171" },
       { name: "WhatsApp", href: "https://wa.me/8801783147171" },
     ],
   },
@@ -41,7 +40,7 @@ const portfolioSections = [
 
 const portfolioSocialLinks = [
   { icon: <FaGithub className="size-5" />, href: "https://github.com/badhonSOFT", label: "GitHub" },
-  { icon: <FaLinkedin className="size-5" />, href: "#", label: "LinkedIn" },
+  { icon: <FaLinkedin className="size-5" />, href: "https://www.linkedin.com/in/badhon-roy-855358381", label: "LinkedIn" },
   { icon: <FaWhatsapp className="size-5" />, href: "https://wa.me/8801783147171", label: "WhatsApp" },
   { icon: <FaEnvelope className="size-5" />, href: "mailto:badhonroy172@gmail.com", label: "Email" },
 ];
@@ -60,8 +59,8 @@ export function Footer() {
       socialLinks={portfolioSocialLinks}
       copyright={`© ${new Date().getFullYear()} Badhon Kumar Roy. All rights reserved.`}
       legalLinks={[
-        { name: "Privacy Policy", href: "#" },
-        { name: "Terms of Service", href: "#" },
+        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms of Service", href: "/terms" },
       ]}
     />
   );

@@ -111,12 +111,17 @@ export default {
 				rainbow: {
 					"0%": { "background-position": "0%" },
 					"100%": { "background-position": "200%" }
+				},
+				grid: {
+					"0%": { transform: "translateY(-50%)" },
+					"100%": { transform: "translateY(0)" }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				rainbow: "rainbow var(--speed, 2s) infinite linear"
+				rainbow: "rainbow var(--speed, 2s) infinite linear",
+				grid: "grid 15s linear infinite"
 			}
 		}
 	},
