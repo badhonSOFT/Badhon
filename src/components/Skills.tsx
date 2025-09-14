@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 
 const skillCategories = [
   {
@@ -36,61 +37,74 @@ export function Skills() {
           </p>
         </div>
 
-        <div className="space-y-12">
-          {/* First row - 3 categories */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
-            {skillCategories.slice(0, 3).map((category, categoryIndex) => (
-              <div 
-                key={category.category}
-                className="text-center animate-stagger-fade"
-                style={{ animationDelay: `${categoryIndex * 200 + 500}ms` }}
-              >
-                <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 animate-slide-in-left" style={{ animationDelay: `${categoryIndex * 200 + 600}ms` }}>
-                  {category.category}
-                </h3>
-                <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default shadow-soft hover:shadow-medium hover:scale-105"
-                      style={{ animationDelay: `${(categoryIndex * 200) + (skillIndex * 75)}ms` }}
+        <HighlightGroup className="group">
+          <HighlighterItem className="rounded-3xl p-6">
+            <div className="relative z-20 overflow-hidden rounded-3xl bg-white dark:bg-black p-8">
+              <Particles
+                className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
+                quantity={100}
+                color={"#60a5fa"}
+                vy={-0.1}
+              />
+              
+              <div className="space-y-12">
+                {/* First row - 3 categories */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+                  {skillCategories.slice(0, 3).map((category, categoryIndex) => (
+                    <div 
+                      key={category.category}
+                      className="text-center animate-stagger-fade"
+                      style={{ animationDelay: `${categoryIndex * 200 + 500}ms` }}
                     >
-                      {skill}
-                    </Badge>
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 animate-slide-in-left" style={{ animationDelay: `${categoryIndex * 200 + 600}ms` }}>
+                        {category.category}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+                        {category.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={skill}
+                            variant="outline"
+                            className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default shadow-soft hover:shadow-medium hover:scale-105"
+                            style={{ animationDelay: `${(categoryIndex * 200) + (skillIndex * 75)}ms` }}
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Second row - 2 categories */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-4xl mx-auto">
+                  {skillCategories.slice(3, 5).map((category, categoryIndex) => (
+                    <div 
+                      key={category.category}
+                      className="text-center animate-stagger-fade"
+                      style={{ animationDelay: `${(categoryIndex + 3) * 200 + 500}ms` }}
+                    >
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 animate-slide-in-left" style={{ animationDelay: `${(categoryIndex + 3) * 200 + 600}ms` }}>
+                        {category.category}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+                        {category.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={skill}
+                            variant="outline"
+                            className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default shadow-soft hover:shadow-medium hover:scale-105"
+                            style={{ animationDelay: `${((categoryIndex + 3) * 200) + (skillIndex * 75)}ms` }}
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-          
-          {/* Second row - 2 categories */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-4xl mx-auto">
-            {skillCategories.slice(3, 5).map((category, categoryIndex) => (
-              <div 
-                key={category.category}
-                className="text-center animate-stagger-fade"
-                style={{ animationDelay: `${(categoryIndex + 3) * 200 + 500}ms` }}
-              >
-                <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6 animate-slide-in-left" style={{ animationDelay: `${(categoryIndex + 3) * 200 + 600}ms` }}>
-                  {category.category}
-                </h3>
-                <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default shadow-soft hover:shadow-medium hover:scale-105"
-                      style={{ animationDelay: `${((categoryIndex + 3) * 200) + (skillIndex * 75)}ms` }}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </HighlighterItem>
+        </HighlightGroup>
       </div>
     </section>
   );

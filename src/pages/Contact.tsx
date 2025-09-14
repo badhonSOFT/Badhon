@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
+import confetti from "canvas-confetti";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -150,13 +151,30 @@ const Contact = () => {
       <main className="pt-16 relative z-10">
         {/* Hero Section */}
         <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-          <div className="mx-auto max-w-7xl text-center">
-            <AnimatedText 
-              text="Let's Work Together"
-              textClassName="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground"
-              underlineClassName="text-primary"
-              underlineDuration={2}
-            />
+          <div className="mx-auto max-w-7xl text-center relative z-10">
+            <div 
+              onMouseEnter={() => {
+                console.log('Confetti triggered!');
+                try {
+                  confetti({
+                    particleCount: 200,
+                    spread: 100,
+                    origin: { y: 0.3 },
+                    colors: ['#60a5fa', '#3b82f6', '#10b981', '#f59e0b', '#ef4444']
+                  });
+                } catch (error) {
+                  console.error('Confetti error:', error);
+                }
+              }}
+              className="cursor-pointer inline-block"
+            >
+              <AnimatedText 
+                text="Let's Work Together"
+                textClassName="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-foreground hover:scale-105 transition-transform"
+                underlineClassName="text-primary"
+                underlineDuration={2}
+              />
+            </div>
             <p className="mt-6 sm:mt-8 text-base sm:text-lg lg:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto font-light px-4 sm:px-0">
               Ready to bring your project to life? Get in touch and let's discuss how I can help you achieve your digital goals with cutting-edge technology and exceptional design.
             </p>
@@ -328,6 +346,8 @@ const Contact = () => {
 
       <Footer />
       <BackToTop />
+      
+
     </div>
   );
 };

@@ -60,13 +60,13 @@ const featuredProjects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative min-h-0 overflow-visible">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
-      <div className="absolute top-20 right-10 sm:top-40 sm:right-20 w-48 h-48 sm:w-96 sm:h-96 bg-portfolio-accent/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 sm:bottom-40 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background pointer-events-none"></div>
+      <div className="absolute top-20 right-10 sm:top-40 sm:right-20 w-48 h-48 sm:w-96 sm:h-96 bg-portfolio-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-20 left-10 sm:bottom-40 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
       
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10 min-h-0">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <AnimatedText 
             text="Featured Projects"
@@ -81,13 +81,13 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16 w-full">
           {featuredProjects.map((project, index) => (
             <GlowCard 
               key={project.title}
               customSize={true}
               glowColor={index % 2 === 0 ? 'blue' : 'purple'}
-              className="group w-full h-auto"
+              className="group w-full h-auto touch-auto"
             >
               <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
                 <div className="flex items-start justify-between mb-3 sm:mb-4">

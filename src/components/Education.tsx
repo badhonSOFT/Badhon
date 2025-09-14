@@ -1,5 +1,6 @@
 import { GraduationCap, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 const education = [
   {
@@ -42,7 +43,14 @@ export function Education() {
                   
                   {/* Content */}
                   <div className="ml-20 w-full">
-                    <Card className="shadow-soft hover-lift glass-card border-0 backdrop-blur-xl">
+                    <Card className="relative shadow-soft hover-lift glass-card border-0 backdrop-blur-xl overflow-hidden">
+                      <BorderBeam 
+                        size={250} 
+                        duration={12} 
+                        delay={index * 2}
+                        colorFrom="#3b82f6"
+                        colorTo="#8b5cf6"
+                      />
                       <CardContent className="p-8">
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-center text-muted-foreground text-sm glass-card border-0 px-3 py-1 rounded-full shadow-soft">
