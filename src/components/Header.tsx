@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[9999] w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-border/50 shadow-lg">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-1 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-0.5 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link 
@@ -33,12 +33,12 @@ export function Header() {
               <img 
                 src="/images/logo.png" 
                 alt="Badhon Roy Logo" 
-                className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain transition-all duration-300 group-hover:scale-110 dark:hidden"
+                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-12 lg:h-12 object-contain transition-all duration-300 group-hover:scale-110 dark:hidden"
               />
               <img 
                 src="/images/white_logo.png" 
                 alt="Badhon Roy Logo" 
-                className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain transition-all duration-300 group-hover:scale-110 hidden dark:block"
+                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-12 lg:h-12 object-contain transition-all duration-300 group-hover:scale-110 hidden dark:block"
               />
             </div>
           </Link>
@@ -87,7 +87,7 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
           <ThemeToggle />
-          <RainbowButton asChild>
+          <RainbowButton asChild size="sm" className="h-8">
             <Link to="/contact">
               Contact
             </Link>

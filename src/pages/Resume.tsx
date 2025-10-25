@@ -43,12 +43,12 @@ const skills = {
 const Resume = () => {
   const handleDownload = () => {
     try {
-      const newWindow = window.open('/resume-badhon-roy.pdf', '_blank');
+      const newWindow = window.open('/cv/CV.pdf', '_blank');
       if (!newWindow) {
         // Fallback if popup is blocked
         const link = document.createElement('a');
-        link.href = '/resume-badhon-roy.pdf';
-        link.download = 'Badhon-Kumar-Roy-Resume.pdf';
+        link.href = '/cv/CV.pdf';
+        link.download = 'Badhon-Kumar-Roy-CV.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

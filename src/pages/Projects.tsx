@@ -65,6 +65,13 @@ const allProjects = [
     url: "https://ximpul.com/",
     category: "E-commerce",
     tech: ["React", "Supabase", "JavaScript", "Admin Panel"]
+  },
+  {
+    title: "Smart Home",
+    description: "Modern e-commerce website built with React and TypeScript backend",
+    url: "https://home.sohub.com.bd/",
+    category: "E-commerce",
+    tech: ["React", "TypeScript", "Supabase", "E-commerce"]
   }
 ];
 
